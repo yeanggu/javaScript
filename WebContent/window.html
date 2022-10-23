@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+opener.window
+window.onload = function(){	
+	var child;
+	document.hetElementById("open").onclick = function(){
+		var child = window.open("newpage.html","new page",
+				"width=400, height=300, top=100, left=100, resizable=yes,location=no");
+	}//새창열기 onclick
+	
+	document.hetElementById("send").onclick = function(){
+		child.document.getElementById("result").innerHTML += "부모에서 추가하여 전송합니다";
+		child.document.getElementById("result").style.color = "red";
+	}//부모에서전달 onclick
+	
+	document.hetElementById("close").onclick = function(){
+		child.close();
+		
+	}//새창닫기 onclick
+}
+</script>
+</head>
+<body>
+<input type=text value="userid">
+<input type=button value="새창열기" id="open">
+<input type=button value="부모에서전달" id="open">
+<input type=button value="새창닫기" id="close">
+</body>
+</html>
